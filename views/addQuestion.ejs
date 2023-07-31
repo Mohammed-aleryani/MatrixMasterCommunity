@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="/addQuestion.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            
+            <div class="logo">Add Question</div>
+            
+            <div id="toggle">
+                <i class="indicator"></i>
+            </div>
+            
+            <ul class="nav-links">
+                
+                <input type="checkbox" id="checkbox_toggle" />
+                <label htmlFor="checkbox_toggle" class="hamburger">
+                    &#9776;
+                </label>
+                
+                <div class="menu">
+                    <li class="header">
+                        <a id="allBtn" href="/">Home Page</a> 
+                    </li>
+                </div>
+            </ul>
+        </nav>
+        <div id="question-title">
+            <h1 >Add Question</h1>
+        </div>
+        <form action="/new-question" method="post" id="submit-question">
+            <div class="inputBox">
+                <input type="text" required="required" name="title">
+                <span>Question</span>
+            </div>
+            
+            <div class="inputBox">
+                <input type="text" required="required" name="description">
+                <span>Description</span>
+            </div>
+            <button>
+                <span id="sub">Submit</span>
+            </button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Page</title>
+        <link rel="stylesheet" href="/addQuestion.css">
+    </head>
+    <body>
+        
+        <div id="question-title">
+            <h1 >Edit Question</h1>
+        </div>
+        <form action="/update-comment/<%=comment._id%>" method="post" id="submit-question">
+            <br>
+            <div class="inputBox">
+                <input type="text" required="required" name="comment" value="<%=comment.comment %>" >
+                <span>Comment</span>
+            </div>
+            <button>
+                <span id="sub">Submit</span>
+            </button>
+        </form>
+
+    </body>
+</html>
+
+

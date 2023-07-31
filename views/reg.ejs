@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./reg.css" />
+    <script src="register.js" defer></script>
+  </head>
+  <body>
+    <div class="full-screen-container">
+      <div class="login-container">
+        <h1 class="login-title">Welcome</h1>
+
+        <form action="/create-user" method="post" class="form">
+          <div class="input-group">
+            <label for="userName">User Name</label>
+            <input
+              name="userName"
+              type="text"
+              name="email"
+              id="userName"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email" required />
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              name="password"
+              type="password"
+              name="email"
+              id="password"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="password">Repeat Password</label>
+            <input
+              type="password"
+              name="repeatPassword"
+              id="repeatPassword"
+              onkeyup="validate_password()"
+              required
+            />
+          </div>
+          <span id="wrong_pass_alert"></span>
+
+          <button type="submit" class="login-btn" id="create">Register</button>
+
+          <% if(success) { %>
+          <p id="success"><%= success %></p>
+          <% } %> <% if(err) { %>
+          <p id="err"><%= err %></p>
+          <% } %>
+        </form>
+        <div class="input-group">
+         <p>Do you have an account?</p>
+        <button class="login-btn" type="submit">
+          <a href="/login">Login</a>
+        </button>   
+        </div>
+        
+      </div>
+    </div>
+    <div></div>
+  </body>
+</html>

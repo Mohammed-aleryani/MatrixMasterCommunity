@@ -1,0 +1,76 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav class="navbar">
+            
+            <div class="logo">Matrix Master</div>
+            
+            <div id="toggle">
+                <i class="indicator"></i>
+            </div>
+            
+            <ul class="nav-links">
+                
+                <input type="checkbox" id="checkbox_toggle" />
+                <label htmlFor="checkbox_toggle" class="hamburger">
+                    &#9776;
+                </label>
+                
+                <div class="menu">
+                    <li class="header">
+                        <a class="nav-item" href="#header">
+                            <form action="/logged-out" method="get">
+                                <button class="allBtn">Log Out</button>
+                            </form>
+                        </a>
+                    </li>
+                    <li class="About">
+                        <a class="nav-item" href="/add-question">
+                            
+                        </a>
+                        
+                    </li>
+                    
+                </div>
+            </ul>
+        </nav>
+        <div id="logout-btn">
+            <!-- <form action="/logged-out" method="get">
+                <button>Log Out</button>
+            </form> -->
+        </div>
+        <div id="web-title">
+            <h1>Matrix Master Community</h1>
+        </div>
+        <div id="home-title-seconde">
+            <h2>There are 4 important questions in life</h2>
+        </div>
+        <div id="add-q-btn">
+            <a href="/add-question"><button type="button" class="btn btn-dark">Add Question</button></a>
+        </div>
+        <div id="container">
+            <% if (data && data.length > 0) { %> 
+                <% for(let i=data.length-1;i>=0;i--){%>
+                    <div id="question-section">
+                        <h4 id="q-title">Question : <%= data[i].title %></h4>
+                        <p id="q-des">Answer : <%= data[i].description %></p>
+                        <a id="see-more-link" href="/question/<%=data[i].id %> "><button type="button" id="se-mo" class="btn btn-outline-warning">See More</button></a>
+                        <hr>
+                    </div>
+                <% } %>
+            <% } else {%> 
+                sorry we have nothing to Show
+            <% } %>
+        </div>
+    </body>
+</html>

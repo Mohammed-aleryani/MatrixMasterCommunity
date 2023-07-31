@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./login.css">
+    </head>
+    <body>
+        <div class="full-screen-container">
+            <div class="login-container">
+                <h1 class="login-title">Welcome</h1>
+                <form action="/login-user" method="post" class="form">
+                    <div class="input-group success">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required>
+                        <!-- <span class="msg">Valid Email</span> -->
+                    </div>
+
+                    <div class="input-group error">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" required>
+                        <!-- <span class="msg">Incorrect Password</span> -->
+                    </div>
+                    <button type="submit" class="login-btn">Login</button>
+                    <% if(err) { %>
+                        <p id="err"> <%= err %> </p>
+                    <% } %>
+                    <p>Are u new? Click On Register</p>
+                    <button type="submit" class="login-btn"><a href="/register">Register</a></button>
+                </form>
+            </div>
+        </div>
+        <div>
+        </div>
+    </body>
+</html>

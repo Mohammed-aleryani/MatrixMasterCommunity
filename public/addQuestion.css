@@ -1,0 +1,279 @@
+
+*{
+    font-family: consolas;
+    box-sizing: border-box;
+}
+
+#submit-question{
+    margin-top: 10rem;
+    /* border: 1px solid red; */
+    width: 40rem;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    gap: 3rem;
+}
+
+#submit-question button{
+    color: rgb(255, 255, 255);
+
+}
+
+
+
+/* this code is about two inputs that we write the question and description */
+.inputBox{
+    position: relative;
+    width: 250px;
+}
+.inputBox input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: #1d2b3a;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    transition: 1s;
+}
+.inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span{
+    color: #00dfc4;
+    transform:translateX(10px) translateY(-5px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background: #1d2b3a;
+    border-left: 1px solid #00dfc4;
+    border-right: 1px solid #00dfc4;
+    letter-spacing: 0.1em;
+}
+.inputBox input:valid,
+.inputBox input:focus {
+    border: 1px solid #00dfc4;
+}
+
+.inputBox:nth-child(2) input:valid ~ span,
+.inputBox:nth-child(2) input:focus ~ span{
+    background: #00dfc4;
+    color: #1d2b3a;
+    border-radius: 4px;
+}
+
+#question-title{
+    margin-left: 15%;
+    color: #182848;
+}
+
+
+
+/* this code is for submit button */
+
+/* *,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+body{
+    
+    
+    color: #efe;
+    background: #182848;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+}
+button{
+    border: none;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #182848;
+    padding: 2em 4em;
+    font-family: sans-serif;
+}
+#sub{
+    text-decoration: none;
+    font-size: clamp(1rem,1vw,2.5rem);
+    background: linear-gradient(-45deg, #ff00c1, #00fff9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+button::after,
+button::before{
+    content: '';
+    position: absolute;
+    background: linear-gradient(var(--rotate), #ff00c1 0% , #9600ff 25%,
+    #4900ff 50%, #00b8ff 80% , #00fff9 100%);
+    width: 105%;
+    height: 110%;
+    left: -2.5%;
+    top: -5%;
+    border-radius: 10px;
+    z-index: -1;
+    transition: --rotate 9999s linear;
+
+
+}
+button:hover::after,
+button:hover::before{
+    --rotate:3600deg;
+    transition: --rotate 20s linear;
+
+}
+button:hover::before{
+    animation: fade 1.2s;
+}
+@property --rotate{
+    syntax:"<angle>";
+    initial-value:130deg;
+    inherits:false;
+}
+@keyframes fade{
+    0%{
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(10px);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(1.4);
+        filter: blur(10px);
+    }
+}
+
+
+#allBtn{
+    margin:1rem;
+    
+    border: none;
+    background-color: hsl(var(--dark-hsl),0.1);
+    color: rgb(255, 255, 255);
+}
+
+
+:root{
+    --primary-hsl: 239, 100%, 10% ;
+    --primary-hsl-light: 200, 100% , 10%;
+    --primary-dark-hsl:  200, 100% , 6%;
+    --dark-hsl: 0, 0%, 2% ;
+    --light-white: 0, 0%, 100% ;
+    --shadow-white: 0, 0% ,80%;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #182848;
+    color: rgb(255, 255, 255);
+    width: 100%;
+    position: fixed;
+    
+}
+
+.nav-links a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+/* LOGO */
+.logo {
+    margin-left: 10px;
+    font-size: 1.5em;
+}
+
+/* NAVBAR MENU */
+.menu {
+    display: flex;
+    gap: 1em;
+    font-size: 18px;
+}
+
+.menu li:hover {
+    background-color: #0b1220;
+    border-radius: 25px;
+    transition: 0.5s ease;
+}
+
+.menu li {
+    padding: 5px 14px;
+}
+
+/* DROPDOWN MENU */
+.services {
+    position: relative;
+}
+
+
+.services:hover .dropdown {
+    display: block;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+/*HAMBURGER MENU*/
+.hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+}
+
+/* APPLYING MEDIA QUERIES */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        position: absolute;
+        background-color: hsl(var(--dark-hsl) ,0.9);
+        right: 0;
+        left: 0;
+        text-align: center;
+        padding: 16px 0;
+    }
+
+    .menu li:hover {
+        display: inline-block;
+        background-color: rgba(248, 247, 247, 0.904);
+        transition: 0.4s ease;
+    }
+
+    .menu li+li {
+        margin-top: 12px;
+    }
+
+    input[type=checkbox]:checked~.menu {
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+}

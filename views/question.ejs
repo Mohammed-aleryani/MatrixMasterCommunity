@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/question.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>
+        <%=question.title %>
+    </title>
+</head>
+
+<body>
+    <nav class="navbar">
+            
+        <div class="logo">Matrix Master</div>
+        
+        <div id="toggle">
+            <i class="indicator"></i>
+        </div>
+        
+        <ul class="nav-links">
+            
+            <input type="checkbox" id="checkbox_toggle" />
+            <label htmlFor="checkbox_toggle" class="hamburger">
+                &#9776;
+            </label>
+            
+            <div class="menu">
+                <li class="header">
+                    <a id="allBtn" href="/">Home Page</a> 
+                </li>
+            </div>
+        </ul>
+    </nav>
+    
+
+    <main class="m-5">
+        <div class=" select-quseton d-flex mt-5">
+            <div id="q-container">
+                <h2 id="ques">
+                    Question : 
+                    <%= question.title %>
+                </h2>
+                <h6 id="answer">
+                    Answer :
+                    <%= question.description %>
+                </h6>
+                <hr style="width: 90%; margin: auto;">
+                <div id="userNameAndDate" class="m-2 align-self-center">
+                    <h4>Created At :  </h4><%= question.createdAt %>
+                </div>
+            </div>
+            
+            <% if(question.owner==current_user){ %>
+                <div class="ml-3 align-self-center">
+                    <form action="/delete-question/<%= question._id %>" method="get">
+                        <button class=" mb-4 btn btn-danger">Delete</button>
+                    </form>
+                    <a href="/edit-page/<%=question._id%>" class="d-block">
+                        <button type="button" class=" btn btn-info">Edit</button>
+                    </a>
+                </div>
+                <% } %>
+        </div>
+            <div id="comments-container">
+                <h3 id="com-tit">Comments</h3>
+                <br>
+                <ol>
+                    <% if(question.comments.length> 0) { %>
+                        <% for(let i=question.comments.length-1;i>=0;i--){ %> 
+                            <li>
+                                <h6 id="comments-sec"><%= question.comments[i].comment %></h6>
+                                    <% if(question.owner == current_user || question.comments[i].owner == current_user){ %> 
+                                    <div>
+                                        <a href="/edit-comment/<%= question.comments[i]._id %>"><button id="edit-com-btn" type="button"  class="btn btn-outline-info btn-sm">Edit</button>
+                                        </a>
+                                        
+                                        <a href="/deleteComment/<%= question.comments[i]._id %>"><button id="edit-com-btn1" type="button" class="btn btn-outline-danger btn-sm">Delete</button>
+                                        </a>
+                                        <hr>
+                                    </div>
+                                <% } %> 
+                            </li>
+                        <% } %>
+                    <% } %>
+                </ol>
+            </div>
+        <div id="add-comments-cont" class="comments container">
+            <h2> Add Comment :</h2>
+            <form action="/add/<%= question._id %>/comment" method="POST">
+                <div class="form-floating">
+                    <textarea name="comment" class="form-control" placeholder="Leave a comment here"
+                        id="floatingTextarea" required></textarea>
+                    <label for="floatingTextarea"></label>
+                </div>
+
+                <button class="btn btn-success mb-5">Add Comment</button>
+            </form>
+        </div>
+        
+        </div>
+    </main>
+</body>
+
+</html>
