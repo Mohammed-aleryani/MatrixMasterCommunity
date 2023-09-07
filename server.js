@@ -13,7 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
-// Connecting the DB
 mongoose
   .connect(process.env.MONGODB_URL)
   .then(() => {

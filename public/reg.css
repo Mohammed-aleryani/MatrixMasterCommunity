@@ -31,7 +31,6 @@ body {
 }
 
 .login-container {
-  /* variable (color) ,then we use it in our code,example (next line) */
   color: hsl(var(--primary-dark-hsl), 0.7);
   background-color: hsl(var(--primary-dark-hsl), 0.7);
   box-shadow: 0 0 15px 0 var(--color);
@@ -90,13 +89,10 @@ a {
 }
 
 .input-group input:focus {
-  /* have a border is not good idea (everythings moves) */
-  /* border: 1px solid hsl(var(--primary-hsl)); */
   box-shadow: 0 0 0 1px hsl(var(--primary-hsl));
 }
 
 .input-group .msg {
-  /* on display none the conten disapear until */
   display: none;
   font-size: 0.75rem;
 }
